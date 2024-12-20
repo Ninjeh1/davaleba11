@@ -23,6 +23,16 @@
             {% endfor %}
         </select>
     </div>
+    <div class="col-md-6">
+        <label for="sort" class="form-label">sort by</label>
+        <select id="sort" name="sort" class="form-select">
+            <option disabled selected>Choose...</option>
+                <option value="price">price: lowest first</option>
+                <option value="-price">price: highest first</option>
+                <option value="create_date">Date: newest first</option>
+                <option value="-create_date">Date: oldest first</option>
+        </select>
+    </div>
     <div class="col-6">
     <div class="form-check">
       <input class="form-check-input" type="checkbox" id="in_stock" name="in_stock">

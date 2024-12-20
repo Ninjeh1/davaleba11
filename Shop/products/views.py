@@ -11,6 +11,7 @@ def home(request):
     max_price = request.GET.get('max_price')
     category = request.GET.get('category')
     in_stock = request.GET.get('in_stock')
+    sort_by = request.GET.get('sort')
 
     filters = dict()
 
@@ -33,6 +34,11 @@ def home(request):
     products = Product.objects.filter(**filters)
 
     categories = Category.objects.all()
+
+    if sort_by:
+        products = products.order_by(sort_by)
+    categories = Category.objects.all()
+
 
     return render(request, 'home.html', {'products': products, 'categories': categories})
 
